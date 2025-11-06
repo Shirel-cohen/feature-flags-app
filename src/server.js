@@ -26,16 +26,12 @@ app.use(express.json());
 app.use('/api/flags', flagsRouter);
 
 // Serve React frontend
-const buildPath = path.join(__dirname, '../../ui/build');
+const buildPath = path.join(__dirname, '../ui/build');
 app.use(express.static(buildPath));
 
 // Serve index.html for all other routes (React handles routing)
 app.use((req, res, next) => {
-   if (!req.path.startsWith('/api')) {
     res.sendFile(path.join(buildPath, 'index.html'));
-  } else {
-    res.status(404).send('Not Found');
-  }
 });
 
 // Start server
