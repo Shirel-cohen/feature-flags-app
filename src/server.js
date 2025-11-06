@@ -31,7 +31,11 @@ app.use(express.static(buildPath));
 
 // Serve index.html for all other routes (React handles routing)
 app.use((req, res, next) => {
-  res.sendFile(path.join(buildPath, 'index.html'));
+   if (!req.path.startsWith('/api')) {
+    res.sendFile(path.join(buildPath, 'index.html'));
+  } else {
+    res.status(404).send('Not Found');
+  }
 });
 
 // Start server
