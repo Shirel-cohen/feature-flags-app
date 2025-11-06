@@ -29,8 +29,8 @@ app.use('/api/flags', flagsRouter);
 const buildPath = path.join(__dirname, '../../ui/build');
 app.use(express.static(buildPath));
 
-// Send index.html for any other route (React handles routing)
-app.get('/*', (req, res) => {
+// Serve index.html for all other routes (React handles routing)
+app.use((req, res, next) => {
   res.sendFile(path.join(buildPath, 'index.html'));
 });
 
@@ -39,3 +39,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
