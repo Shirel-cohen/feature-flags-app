@@ -26,7 +26,7 @@ app.use(express.json());
 app.use('/api/flags', flagsRouter);
 
 // Serve React frontend
-const buildPath = path.join(__dirname, '../ui/build');
+const buildPath = path.join(__dirname, '../../ui/build');
 app.use(express.static(buildPath));
 
 // Send index.html for any other route (React handles routing)
