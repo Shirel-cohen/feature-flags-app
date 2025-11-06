@@ -18,6 +18,7 @@ const flagsRouter = require('./routes/flags');
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -25,12 +26,16 @@ app.use(express.json());
 app.use('/api/flags', flagsRouter);
 
 // Serve React frontend
-const buildPath = path.join(__dirname, '../ui/build'); // adjust path if needed
+const buildPath = path.join(__dirname, '../ui/build');
 app.use(express.static(buildPath));
 
-app.get('*', (req, res) => {
+// Send index.html for any other route (React handles routing)
+app.get('/*', (req, res) => {
   res.sendFile(path.join(buildPath, 'index.html'));
 });
 
+// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
