@@ -8,7 +8,7 @@ function App() {
   const [enabled, setEnabled] = useState(false);
   const [result, setResult] = useState("");
 
-  const API="http://localhost:3000/api/flags";
+  const API="/api/flags";
 
   const toggleFeature = async () =>{
     await axios.post(API, { feature, userId, enabled});
