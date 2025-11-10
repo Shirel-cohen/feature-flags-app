@@ -32,25 +32,26 @@ function App() {
       <div
         style={{
           textAlign: "center",
-          padding: 30,
+          padding: 50,
           backgroundColor: "white",
-          borderRadius: 10,
+          borderRadius: 15,
           boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
-          width: "350px"
+          width: "450px",
+          maxWidth: "90%",
         }}
       >
-        <h1 style={{ marginBottom: 20 }}>Feature Flags</h1>
+        <h1 style={{ marginBottom: 30, fontSize:28 }}>Feature Flags</h1>
 
         <input
           placeholder="Feature"
           value={feature}
           onChange={(e) => setFeture(e.target.value)}
           style={{
-            width: "90%",
-            padding: 12,
-            marginBottom: 10,
-            fontSize: 16,
-            borderRadius: 5,
+            width: "95%",
+            padding: 15,
+            marginBottom: 15,
+            fontSize: 18,
+            borderRadius: 7,
             border: "1px solid #aaa",
           }}
         />
@@ -60,36 +61,36 @@ function App() {
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
           style={{
-            width: "90%",
-            padding: 12,
-            marginBottom: 10,
-            fontSize: 16,
-            borderRadius: 5,
+            width: "95%",
+            padding: 15,
+            marginBottom: 15,
+            fontSize: 18,
+            borderRadius: 7,
             border: "1px solid #aaa",
           }}
         />
 
-        <label style={{ fontSize: 16 }}>
+        <label style={{ fontSize: 18 }}>
           <input
             type="checkbox"
             checked={enabled}
             onChange={(e) => setEnabled(e.target.checked)}
-            style={{ marginRight: 5 }}
+            style={{ marginRight: 8 }}
           />
           Enabled
         </label>
 
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 25 }}>
           <button
             onClick={toggleFeature}
             style={{
-              padding: "10px 20px",
-              fontSize: 16,
-              borderRadius: 5,
+              padding: "12px 25px",
+              fontSize: 18,
+              borderRadius: 7,
               backgroundColor: "#5c9ded",
               color: "white",
               border: "none",
-              marginRight: 10,
+              marginRight: 12,
               cursor: "pointer",
             }}
           >
@@ -99,9 +100,9 @@ function App() {
           <button
             onClick={checkFeature}
             style={{
-              padding: "10px 20px",
-              fontSize: 16,
-              borderRadius: 5,
+              padding: "12px 25px",
+              fontSize: 18,
+              borderRadius: 7,
               backgroundColor: "#7aba78",
               color: "white",
               border: "none",
@@ -112,7 +113,7 @@ function App() {
           </button>
         </div>
 
-        <p style={{ marginTop: 20, fontSize: 16 }}>{result}</p>
+        <p style={{ marginTop: 25, fontSize: 18 }}>{result}</p>
       </div>
     </div>
   );
